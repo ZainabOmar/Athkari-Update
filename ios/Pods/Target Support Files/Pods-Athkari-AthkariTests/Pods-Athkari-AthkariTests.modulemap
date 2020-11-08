@@ -1,0 +1,6 @@
+module Pods_Athkari_AthkariTests {
+  umbrella header "Pods-Athkari-AthkariTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

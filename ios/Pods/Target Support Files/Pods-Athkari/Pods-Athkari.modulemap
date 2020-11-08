@@ -1,0 +1,6 @@
+module Pods_Athkari {
+  umbrella header "Pods-Athkari-umbrella.h"
+
+  export *
+  module * { export * }
+}
