@@ -14,6 +14,7 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableOpacity
 } from 'react-native';
 
 import {
@@ -24,50 +25,37 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import AppHeader from './src/components/AppHeader';
+import Logo from './src/components/Logo';
+import Sabah from './src/components/AllAthkar/Sabah';
+import Masaa from './src/components/AllAthkar/Masaa';
+import Other from './src/components/AllAthkar/Other';
+
+
 const App: () => React$Node = () => {
+  console.log("hi");
   return (
     <>
+     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
+      <Logo />
+      <AppHeader />
+      <TouchableOpacity
+      onPress={() => this.props.navigation.navigate('Sabah')}
+      style={styles.button}>
+      <Text style={styles.buttonText}> أذكار الصباح </Text>
+      </TouchableOpacity>
+      <TouchableOpacity 
+      onPress={() => this.props.navigation.navigate('Masaa')}
+      style={styles.button}>
+      <Text style={styles.buttonText}> أذكار المساء </Text>
+      </TouchableOpacity>
+      <TouchableOpacity 
+      onPress={() => this.props.navigation.navigate('Other')}
+      style={styles.button}>
+      <Text style={styles.buttonText}> أخرى </Text>
+      </TouchableOpacity>
+      </View>
     </>
   );
 };
